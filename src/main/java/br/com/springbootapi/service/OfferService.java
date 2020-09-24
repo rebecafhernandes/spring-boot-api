@@ -29,10 +29,9 @@ public class OfferService {
 
     public OfferDTO getOfferById(Long id) {
         Optional<Offer> offer = offerRepository.findById(id);
-        if (offer.isPresent()) {
-            return modelMapper.map(offer, OfferDTO.class);
-        }
-        return null;
+        return modelMapper.map(offer.get(), OfferDTO.class);
     }
+
+
 
 }
